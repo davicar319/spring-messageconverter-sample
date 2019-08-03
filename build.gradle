@@ -1,3 +1,14 @@
+/*
+ * Copyright (c) 2019 David A Carlson, Bixby's Dog House Software.
+ *
+ * Free to use and/or modify under the Apache License 2.0.  See the LICENSE file in the root directory
+ *  of the project for more information.
+ *                                  Apache License
+ *                            Version 2.0, January 2004
+ *                         http://www.apache.org/licenses/
+ *
+ */
+
 plugins {
     id 'org.springframework.boot' version '2.1.6.RELEASE'
     id 'java'
@@ -24,9 +35,16 @@ repositories {
 }
 
 dependencies {
+    //Spring
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+    //Lombok
+    compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+
+    //Project dependencies
+
+
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
