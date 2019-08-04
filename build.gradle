@@ -30,11 +30,21 @@ configurations {
     }
 }
 
+configurations.all {
+    //exclude group: 'ch.qos.logback'
+}
+
 repositories {
+    //jcenter()
     mavenCentral()
 }
 
 dependencies {
+    //Project dependencies
+    implementation ('org.apache.jena:apache-jena:3.12.0') {
+        exclude group: 'org.slf4j'
+    }
+
     //Spring
     implementation 'org.springframework.boot:spring-boot-starter-web'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
@@ -42,9 +52,5 @@ dependencies {
     //Lombok
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
-
-    //Project dependencies
-
-
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
