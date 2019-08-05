@@ -12,21 +12,18 @@
 package com.bixbysdoghouse.training.spring.springmessageconvertersample.web;
 
 import org.apache.jena.rdf.model.ModelFactory;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import org.apache.jena.query.Dataset;
 import org.apache.jena.query.DatasetFactory;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@RequestMapping()
+@RequestMapping
 public class DatasetConversionController {
 
-    @PostMapping("/rdf/converter")
-    public Dataset convertDataset() {
-        Dataset dataset = null;
-        return DatasetFactory.create(ModelFactory.createDefaultModel());
+    @PostMapping(value = "/rdf/converter", consumes = "application/n-quads",
+    produces = {"application/ld+json", "application/ld+json;charset=UTF-8"})
+    public @ResponseBody Dataset convertDataset(@RequestBody Dataset dataset) {
+        return dataset;
     }
 }
